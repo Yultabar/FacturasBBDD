@@ -69,6 +69,7 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
         jlClienteNew = new javax.swing.JLabel();
         jcbClienteNew = new javax.swing.JComboBox<>();
         jlInfoMatricula = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jmiAltaMatricula.setText("Nueva Matricula");
         jmiAltaMatricula.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +107,7 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
             .addGroup(jpTituloLayout.createSequentialGroup()
                 .addGap(112, 112, 112)
                 .addComponent(jlTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         jpTituloLayout.setVerticalGroup(
             jpTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,6 +163,9 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
         jlInfoMatricula.setFont(new java.awt.Font("Ubuntu", 0, 10)); // NOI18N
         jlInfoMatricula.setText("Clic derecho sobre la lista de \"Matricula\" para crear nuevas o borrar las actuales");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("€");
+
         javax.swing.GroupLayout jpAltaFacturasLayout = new javax.swing.GroupLayout(jpAltaFacturas);
         jpAltaFacturas.setLayout(jpAltaFacturasLayout);
         jpAltaFacturasLayout.setHorizontalGroup(
@@ -184,18 +188,18 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
                             .addComponent(tfDestinoNew)
                             .addComponent(tfOrigenNew)))
                     .addGroup(jpAltaFacturasLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jlPrecioNew)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jpAltaFacturasLayout.createSequentialGroup()
-                                .addGap(117, 117, 117)
                                 .addComponent(jbNuevaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpAltaFacturasLayout.createSequentialGroup()
-                                .addGap(43, 43, 43)
+                                .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62)
                                 .addComponent(jlClienteNew)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,7 +232,8 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
                         .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlClienteNew)
                         .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlFechaPorteNew))
+                        .addComponent(jlFechaPorteNew)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jdcFechaPorteNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64)
                 .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -359,6 +364,7 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jbCerrar;
     private javax.swing.JButton jbNuevaFactura;
     private javax.swing.JComboBox<String> jcbClienteNew;
