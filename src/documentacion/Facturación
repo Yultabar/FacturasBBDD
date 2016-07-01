@@ -1,0 +1,81 @@
+Tecnologia: NetBeans, SQLite(o otro gestor mas pequeño), SWING
+
+Modelo ER
+
+CLIENTE (1) encarga (N) PORTE (1) genera (N) FACTURA
+
+Porte (Id, Matrícula, Fecha,Origen,Destino,Importe)------------Decidir Tipos/Importes
+
+Cliente(Id, CIF, Nombre,Direccion,Poblacion,CPostal,Provincia,Pais)
+
+Factura(Id,NroFactura,Fecha)
+
+
+SCRIPT SQL
+
+DROP DATABASE Facturacion;
+CREATE DATABASE Facturacion;
+USE Facturacion;								   
+									
+CREATE TABLE TClientes (
+Id		INT 			PRIMARY KEY AUTO_INCREMENT,
+Alias		VARCHAR(20)		NOT NULL,
+CIF		VARCHAR(20)		NOT NULL,
+Direccion1     	VARCHAR(20)		NOT NULL,         
+Direccion2	VARCHAR(20),
+Direccion3	VARCHAR(20)
+) CHARACTER SET utf8 COLLATE utf8_spanish_ci; 
+
+CREATE TABLE TPortes (
+Id		INT			PRIMARY KEY AUTO_INCREMENT,
+Matricula	VARCHAR(10)		NOT NULL,
+Fecha		DATE			NOT NULL,
+Origen		VARCHAR(20)		NOT NULL,
+Destino		VARCHAR(50)		NOT NULL,
+Precio		DECIMAL(7,2)		NOT NULL,
+IdCliente	INT			NOT NULL,
+FOREIGN KEY(IdCliente) REFERENCES TClientes(Id)
+) CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+
+CREATE TABLE TFacturas (
+Id		INT			PRIMARY KEY AUTO_INCREMENT,
+Fecha		DATE			NOT NULL,
+TipoIva		DECIMAL(2,2)		NOT NULL,
+TipoRetencion	DECIMAL(2,2)		NOT NULL,
+IdPorte		INT			NOT NULL,
+FOREIGN KEY(IdPorte) REFERENCES TPortes(Id)
+) CHARACTER SET utf8 COLLATE utf8_spanish_ci; 
+ 
+VERSION 2 DE LA BASE DE DATOS:
+
+
+
+VISTAS
+
+clientes:
+Opcion para cambiar el nombre de la empresa
+quitar el CIF de la tabla de clientes
+ocultar el id del cliente en la tabla
+en vez de "alias" en la tabla, colocar "cliente"
+incluir "telefono" en la vista clientes y en la base de datos
+añadir persona de contacto en la bbdd y en la tabla
+añadir provincia
+
+facturas:
+consulta entre fecha1 y fecha2
+por cliente
+boton consultar todo (desde 1 de enero)
+trimestres
+(posibilidad de eliminar la ultima factura)
+
+
+Principal: mostrar todas las facturas y opciones de consulta (reconsultar por cada pulsacion escrita)
+Alta
+Modificar
+Imprimir (convertir a PDF)
+
+
+
+
+
+
