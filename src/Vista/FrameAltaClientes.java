@@ -60,6 +60,11 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         tfDireccion2New = new javax.swing.JTextField();
         tfPaisNew = new javax.swing.JTextField();
         jlPaisNew = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FacturacionApp Pepito");
@@ -95,8 +100,20 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         jlAliasClienteNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlAliasClienteNew.setText("Cliente:");
 
+        tfAliasClienteNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfAliasClienteNewKeyReleased(evt);
+            }
+        });
+
         jlCIFNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlCIFNew.setText("CIF:");
+
+        tfCIFNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfCIFNewKeyReleased(evt);
+            }
+        });
 
         jlZonaNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlZonaNew.setText("Zona:");
@@ -133,36 +150,87 @@ public class FrameAltaClientes extends javax.swing.JFrame {
                 tfContactoNewActionPerformed(evt);
             }
         });
+        tfContactoNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfContactoNewKeyReleased(evt);
+            }
+        });
 
         jlDireccionNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDireccionNew.setText("Direccion1:");
 
+        tfDireccionNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDireccionNewKeyReleased(evt);
+            }
+        });
+
         jlDireccion2New.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDireccion2New.setText("Direccion2:");
 
+        tfDireccion2New.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDireccion2NewKeyReleased(evt);
+            }
+        });
+
+        tfPaisNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfPaisNewKeyReleased(evt);
+            }
+        });
+
         jlPaisNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlPaisNew.setText("Pais:");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel1.setText("*");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel2.setText("*");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel3.setText("*");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel4.setText("*");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setText("*");
 
         javax.swing.GroupLayout jpAltaClientesLayout = new javax.swing.GroupLayout(jpAltaClientes);
         jpAltaClientes.setLayout(jpAltaClientesLayout);
         jpAltaClientesLayout.setHorizontalGroup(
             jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(3, 3, 3)
                 .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpAltaClientesLayout.createSequentialGroup()
                         .addComponent(jlAliasClienteNew)
                         .addGap(4, 4, 4)
                         .addComponent(tfAliasClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel2)
+                        .addGap(1, 1, 1)
                         .addComponent(jlCIFNew)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfCIFNew, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3)
+                        .addGap(3, 3, 3)
                         .addComponent(jlZonaNew)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfZonaNew, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addGap(5, 5, 5)
                         .addComponent(jlDireccionNew))
                     .addGroup(jpAltaClientesLayout.createSequentialGroup()
                         .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +245,9 @@ public class FrameAltaClientes extends javax.swing.JFrame {
                                 .addGap(67, 67, 67)
                                 .addComponent(jlContactoNew))
                             .addGroup(jpAltaClientesLayout.createSequentialGroup()
-                                .addGap(60, 60, 60)
+                                .addGap(45, 45, 45)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jlDireccion2New)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,21 +269,25 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         jpAltaClientesLayout.setVerticalGroup(
             jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAltaClientesLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(7, 7, 7)
                 .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jlPaisNew)
+                        .addComponent(tfPaisNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlDireccionNew)
                         .addComponent(tfDireccionNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlPaisNew)
-                            .addComponent(tfPaisNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlAliasClienteNew)
                         .addComponent(tfAliasClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlCIFNew)
                         .addComponent(tfCIFNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jlZonaNew)
-                        .addComponent(tfZonaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfZonaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpAltaClientesLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -224,7 +298,8 @@ public class FrameAltaClientes extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfDireccion2New, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlDireccion2New))))
+                            .addComponent(jlDireccion2New)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(23, 23, 23)
                 .addGroup(jpAltaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlTelefono2New)
@@ -245,7 +320,7 @@ public class FrameAltaClientes extends javax.swing.JFrame {
             .addComponent(jpTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpAltaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,9 +370,43 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfContactoNewActionPerformed
 
+    
+    
+    /*
+    PARA PONER LAS LETRAS EN MAYUSCULAS
+    */
+    private void tfAliasClienteNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAliasClienteNewKeyReleased
+         tfAliasClienteNew.setText(tfAliasClienteNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfAliasClienteNewKeyReleased
+
+    private void tfCIFNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCIFNewKeyReleased
+        tfCIFNew.setText(tfCIFNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfCIFNewKeyReleased
+
+    private void tfDireccionNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccionNewKeyReleased
+        tfDireccionNew.setText(tfDireccionNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfDireccionNewKeyReleased
+
+    private void tfDireccion2NewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccion2NewKeyReleased
+        tfDireccion2New.setText(tfDireccion2New.getText().toUpperCase());
+    }//GEN-LAST:event_tfDireccion2NewKeyReleased
+
+    private void tfPaisNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPaisNewKeyReleased
+        tfPaisNew.setText(tfPaisNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfPaisNewKeyReleased
+
+    private void tfContactoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfContactoNewKeyReleased
+        tfContactoNew.setText(tfContactoNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfContactoNewKeyReleased
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbCerrar;
     private javax.swing.JButton jbNuevoCliente;
     private javax.swing.JLabel jlAliasClienteNew;

@@ -72,6 +72,12 @@ public class FrameAltaMatricula extends javax.swing.JFrame {
         jlMatriculaNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlMatriculaNew.setText("Matricula:");
 
+        tfMatriculaNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfMatriculaNewKeyReleased(evt);
+            }
+        });
+
         jbNuevaMatricula.setBackground(new java.awt.Color(226, 179, 44));
         jbNuevaMatricula.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jbNuevaMatricula.setText("Alta");
@@ -140,7 +146,7 @@ public class FrameAltaMatricula extends javax.swing.JFrame {
         try{
             BufferedReader br = new BufferedReader(new FileReader("./config/empresa"));
             String titulo = "";
-            jlTitulo.setText(br.readLine());
+            //jlTitulo.setText(br.readLine());
         }catch(IOException ex){
             ex.printStackTrace();
         }
@@ -160,13 +166,20 @@ public class FrameAltaMatricula extends javax.swing.JFrame {
         tfMatriculaNew.setText("");
     }//GEN-LAST:event_jbNuevaMatriculaActionPerformed
 
+    /*
+    PARA QUE CONVIERTA A MAYUSCULAS
+    */
+    private void tfMatriculaNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfMatriculaNewKeyReleased
+       tfMatriculaNew.setText(tfMatriculaNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfMatriculaNewKeyReleased
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbCerrar;
     private javax.swing.JButton jbNuevaMatricula;
     private javax.swing.JLabel jlMatriculaNew;
-    private static javax.swing.JLabel jlTitulo;
+    private javax.swing.JLabel jlTitulo;
     private javax.swing.JPanel jpAltaMatriculas;
     private javax.swing.JPanel jpTitulo;
     private javax.swing.JTextField tfMatriculaNew;

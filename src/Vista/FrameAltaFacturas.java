@@ -4,6 +4,7 @@ import dao.Modelo;
 import dominio.Cliente;
 import dominio.Factura;
 import dominio.Porte;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.util.Calendar;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
@@ -107,7 +109,7 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
             .addGroup(jpTituloLayout.createSequentialGroup()
                 .addGap(112, 112, 112)
                 .addComponent(jlTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         jpTituloLayout.setVerticalGroup(
             jpTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,8 +144,20 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
         jlOrigenNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlOrigenNew.setText("Origen:");
 
+        tfOrigenNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfOrigenNewKeyReleased(evt);
+            }
+        });
+
         jlDestinoNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDestinoNew.setText("Destino:");
+
+        tfDestinoNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDestinoNewKeyReleased(evt);
+            }
+        });
 
         jlMatriculaNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlMatriculaNew.setText("Matricula:");
@@ -156,6 +170,12 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
 
         jlPrecioNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlPrecioNew.setText("Importe:");
+
+        tfPrecioNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfPrecioNewKeyTyped(evt);
+            }
+        });
 
         jlClienteNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlClienteNew.setText("Cliente:");
@@ -171,75 +191,90 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
         jpAltaFacturasLayout.setHorizontalGroup(
             jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAltaFacturasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(jlMatriculaNew)
                         .addGap(18, 18, 18)
                         .addComponent(jcbMatriculaNew, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jlInfoMatricula))
                     .addGroup(jpAltaFacturasLayout.createSequentialGroup()
-                        .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlOrigenNew)
-                            .addComponent(jlDestinoNew))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfDestinoNew)
-                            .addComponent(tfOrigenNew)))
+                        .addGap(10, 10, 10)
+                        .addComponent(jlOrigenNew)
+                        .addGap(10, 10, 10)
+                        .addComponent(tfOrigenNew, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jlDestinoNew)
+                        .addGap(4, 4, 4)
+                        .addComponent(tfDestinoNew, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(jlPrecioNew)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jpAltaFacturasLayout.createSequentialGroup()
-                                .addComponent(jbNuevaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpAltaFacturasLayout.createSequentialGroup()
-                                .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
-                                .addComponent(jlClienteNew)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jlFechaPorteNew)
-                                .addGap(18, 18, 18)
-                                .addComponent(jdcFechaPorteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addGap(4, 4, 4)
+                        .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jlClienteNew)
+                        .addGap(10, 10, 10)
+                        .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jlFechaPorteNew)
+                        .addGap(18, 18, 18)
+                        .addComponent(jdcFechaPorteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(307, 307, 307)
+                        .addComponent(jbNuevaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jpAltaFacturasLayout.setVerticalGroup(
             jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAltaFacturasLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlMatriculaNew)
                     .addComponent(jcbMatriculaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlInfoMatricula))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jlInfoMatricula)))
                 .addGap(17, 17, 17)
-                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlOrigenNew)
                     .addComponent(tfOrigenNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlDestinoNew)
                     .addComponent(tfDestinoNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jlPrecioNew)
-                        .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlClienteNew)
-                        .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlFechaPorteNew)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jlPrecioNew))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel1))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jlClienteNew))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpAltaFacturasLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jlFechaPorteNew))
                     .addComponent(jdcFechaPorteNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(76, 76, 76)
+                .addGroup(jpAltaFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbNuevaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -253,9 +288,8 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jpAltaFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpAltaFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -361,6 +395,38 @@ public class FrameAltaFacturas extends javax.swing.JFrame {
         modelo.altaFactura(f);
         fp.actualizarTableFacturas();
     }//GEN-LAST:event_jbNuevaFacturaActionPerformed
+
+    
+    /*
+    PARA QUE SOLO ADMITA PUNTO O COMA DECIMAL
+    */
+    private void tfPrecioNewKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPrecioNewKeyTyped
+       
+       //Declaramos la variable y le asignamos un evento
+        char car = evt.getKeyChar();
+        //Condición que nos permite ingresar números con su punto decimal
+        if((car<'0' || car>'9') && tfPrecioNew.getText().contains(".") //&& tfPrecioNew.getText().contains(",") 
+                && (car!=(char)KeyEvent.VK_BACK_SPACE)){//Esto nos permite ingresar números del 1-9 y también de un punto decimal
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se admite números y punto decimal", "Validar números", JOptionPane.INFORMATION_MESSAGE);
+        }else if((car<'0' || car>'9') && (car!='.') //&& (car!=',')
+                && (car!=(char)KeyEvent.VK_BACK_SPACE)){//Esto nos permite ingresar números del 1-9 y también de un punto o coma decimal
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se admite números y punto decimal", "Validar números", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_tfPrecioNewKeyTyped
+
+    
+    /*
+    PARA QUE CONVIERTA A MAYUSCULAS
+    */
+    private void tfOrigenNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfOrigenNewKeyReleased
+         tfOrigenNew.setText(tfOrigenNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfOrigenNewKeyReleased
+
+    private void tfDestinoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDestinoNewKeyReleased
+        tfDestinoNew.setText(tfDestinoNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfDestinoNewKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

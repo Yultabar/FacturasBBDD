@@ -105,6 +105,12 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         jlCIFNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlCIFNew.setText("CIF:");
 
+        tfCIFNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfCIFNewKeyReleased(evt);
+            }
+        });
+
         jlZonaNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlZonaNew.setText("Zona:");
 
@@ -135,8 +141,20 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         jlContactoNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlContactoNew.setText("Contacto:");
 
+        tfContactoNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfContactoNewKeyReleased(evt);
+            }
+        });
+
         jlDireccionNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDireccionNew.setText("Direccion1:");
+
+        tfDireccionNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDireccionNewKeyReleased(evt);
+            }
+        });
 
         comboClientesModificados.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -147,8 +165,20 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         jlDireccion2New.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDireccion2New.setText("Direccion2:");
 
+        tfDireccion2New.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDireccion2NewKeyReleased(evt);
+            }
+        });
+
         jlPaisNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlPaisNew.setText("Pais:");
+
+        tfPaisNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfPaisNewKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpModificacionClientesLayout = new javax.swing.GroupLayout(jpModificacionClientes);
         jpModificacionClientes.setLayout(jpModificacionClientesLayout);
@@ -297,6 +327,29 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
         tfZonaNew.setText(cRellenar.getZona());
         tfPaisNew.setText(cRellenar.getPais());
     }//GEN-LAST:event_comboClientesModificadosItemStateChanged
+
+    /*
+    PARA CONVERTIR A MAYUSCULAS
+    */
+    private void tfCIFNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCIFNewKeyReleased
+        tfCIFNew.setText(tfCIFNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfCIFNewKeyReleased
+
+    private void tfDireccionNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccionNewKeyReleased
+        tfDireccionNew.setText(tfDireccionNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfDireccionNewKeyReleased
+
+    private void tfDireccion2NewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccion2NewKeyReleased
+        tfDireccion2New.setText(tfDireccion2New.getText().toUpperCase());
+    }//GEN-LAST:event_tfDireccion2NewKeyReleased
+
+    private void tfContactoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfContactoNewKeyReleased
+        tfContactoNew.setText(tfContactoNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfContactoNewKeyReleased
+
+    private void tfPaisNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPaisNewKeyReleased
+         tfPaisNew.setText(tfPaisNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfPaisNewKeyReleased
 
 
 

@@ -100,8 +100,20 @@ public class FrameConfiguracion extends javax.swing.JFrame {
         jlNombreEmpresConfiguracion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlNombreEmpresConfiguracion.setText("Nombre de la empresa:");
 
+        tfNombreEmpresaNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfNombreEmpresaNewKeyReleased(evt);
+            }
+        });
+
         jlNifCif.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlNifCif.setText("NIF/CIF:");
+
+        tfNifCif.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNifCifKeyTyped(evt);
+            }
+        });
 
         jlDireccion1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDireccion1.setText("Codigo Postal:");
@@ -109,11 +121,23 @@ public class FrameConfiguracion extends javax.swing.JFrame {
         jlDireccion2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDireccion2.setText("Provincia:");
 
+        tfDireccion2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDireccion2KeyReleased(evt);
+            }
+        });
+
         jlTipoRetencionConfiguracion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlTipoRetencionConfiguracion.setText("Tipo de Retencion:");
 
         jlDireccion3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDireccion3.setText("Calle:");
+
+        tfDireccion3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDireccion3KeyReleased(evt);
+            }
+        });
 
         jlTelefono.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlTelefono.setText("Telefono:");
@@ -306,6 +330,25 @@ public class FrameConfiguracion extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jbAceptarActionPerformed
+
+    /*
+    PARA CONVERTIR EN MAYUSCULAS
+    */
+    private void tfNombreEmpresaNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNombreEmpresaNewKeyReleased
+        tfNombreEmpresaNew.setText(tfNombreEmpresaNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfNombreEmpresaNewKeyReleased
+
+    private void tfNifCifKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNifCifKeyTyped
+        tfNifCif.setText(tfNifCif.getText().toUpperCase());
+    }//GEN-LAST:event_tfNifCifKeyTyped
+
+    private void tfDireccion2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccion2KeyReleased
+         tfDireccion2.setText(tfDireccion2.getText().toUpperCase());
+    }//GEN-LAST:event_tfDireccion2KeyReleased
+
+    private void tfDireccion3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccion3KeyReleased
+        tfDireccion3.setText(tfDireccion3.getText().toUpperCase());
+    }//GEN-LAST:event_tfDireccion3KeyReleased
 
 
 

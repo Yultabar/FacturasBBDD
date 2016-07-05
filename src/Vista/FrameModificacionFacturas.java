@@ -3,11 +3,13 @@ package Vista;
 import dao.Modelo;
 import dominio.Cliente;
 import dominio.Factura;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 
@@ -57,6 +59,7 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
         jcbClienteNew = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         comboNFacturas = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FacturacionApp Pepito");
@@ -113,14 +116,32 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
         jlOrigenNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlOrigenNew.setText("Origen:");
 
+        tfOrigenNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfOrigenNewKeyReleased(evt);
+            }
+        });
+
         jlDestinoNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlDestinoNew.setText("Destino:");
+
+        tfDestinoNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDestinoNewKeyReleased(evt);
+            }
+        });
 
         jlMatriculaNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlMatriculaNew.setText("Matricula:");
 
         jlPrecioNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlPrecioNew.setText("Importe:");
+
+        tfPrecioNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfPrecioNewKeyTyped(evt);
+            }
+        });
 
         jlFechaFacturaNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlFechaFacturaNew.setText("Fecha factura:");
@@ -135,6 +156,9 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
                 comboNFacturasItemStateChanged(evt);
             }
         });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("€");
 
         javax.swing.GroupLayout jpModificacionFacturasLayout = new javax.swing.GroupLayout(jpModificacionFacturas);
         jpModificacionFacturas.setLayout(jpModificacionFacturasLayout);
@@ -151,31 +175,35 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
                         .addComponent(jlFechaPorteNew)
                         .addGap(18, 18, 18)
                         .addComponent(jdcFechaPorteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpModificacionFacturasLayout.createSequentialGroup()
-                        .addComponent(jlPrecioNew)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jlClienteNew)
-                        .addGap(11, 11, 11)
-                        .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jlMatriculaNew)
-                        .addGap(16, 16, 16)
-                        .addComponent(jcbMatriculaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpModificacionFacturasLayout.createSequentialGroup()
-                        .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlOrigenNew)
-                            .addComponent(jlDestinoNew))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfOrigenNew, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                            .addComponent(tfDestinoNew)))
-                    .addGroup(jpModificacionFacturasLayout.createSequentialGroup()
+                    .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpModificacionFacturasLayout.createSequentialGroup()
+                            .addComponent(jlPrecioNew)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(34, 34, 34)
+                            .addComponent(jlClienteNew)
+                            .addGap(18, 18, 18)
+                            .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                            .addComponent(jlMatriculaNew)
+                            .addGap(18, 18, 18)
+                            .addComponent(jcbMatriculaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpModificacionFacturasLayout.createSequentialGroup()
+                            .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jlOrigenNew)
+                                .addComponent(jlDestinoNew))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tfOrigenNew, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                .addComponent(tfDestinoNew))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpModificacionFacturasLayout.createSequentialGroup()
                         .addComponent(jlFechaFacturaNew)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdcFechaFacturaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jdcFechaFacturaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(264, 264, 264)))
+                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpModificacionFacturasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbModificacionFactura)
@@ -186,38 +214,41 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
         jpModificacionFacturasLayout.setVerticalGroup(
             jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpModificacionFacturasLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(comboNFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlFechaPorteNew))
                     .addGroup(jpModificacionFacturasLayout.createSequentialGroup()
-                        .addComponent(jdcFechaPorteNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
+                        .addGap(20, 20, 20)
+                        .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(comboNFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlFechaPorteNew))
+                            .addGroup(jpModificacionFacturasLayout.createSequentialGroup()
+                                .addComponent(jdcFechaPorteNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17)
+                                .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlOrigenNew)
+                                    .addComponent(tfOrigenNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlOrigenNew)
-                            .addComponent(tfOrigenNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlDestinoNew)
-                    .addComponent(tfDestinoNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jcbMatriculaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlMatriculaNew))
-                    .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jlClienteNew)
-                        .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jlPrecioNew)
-                        .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlFechaFacturaNew)
-                    .addComponent(jdcFechaFacturaNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                            .addComponent(jlDestinoNew)
+                            .addComponent(tfDestinoNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jcbMatriculaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlMatriculaNew)
+                                .addComponent(jcbClienteNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlClienteNew))
+                            .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jlPrecioNew)
+                                .addComponent(tfPrecioNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(52, 52, 52)
+                        .addComponent(jlFechaFacturaNew))
+                    .addGroup(jpModificacionFacturasLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jdcFechaFacturaNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
                 .addGroup(jpModificacionFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbModificacionFactura)
                     .addComponent(jbCerrar))
@@ -335,11 +366,39 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jbModificacionFacturaActionPerformed
 
+    private void tfPrecioNewKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPrecioNewKeyTyped
+        //Esto es para que admita punto decimal
+        //Declaramos la variable y le asignamos un evento
+        char car = evt.getKeyChar();
+        //Condición que nos permite ingresar números con su punto decimal
+        if((car<'0' || car>'9') && tfPrecioNew.getText().contains(".") //&& tfPrecioNew.getText().contains(",") 
+                && (car!=(char)KeyEvent.VK_BACK_SPACE)){//Esto nos permite ingresar números del 1-9 y también de un punto decimal
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se admite números y punto decimal", "Validar números", JOptionPane.INFORMATION_MESSAGE);
+        }else if((car<'0' || car>'9') && (car!='.')// && (car!=',')
+                && (car!=(char)KeyEvent.VK_BACK_SPACE)){//Esto nos permite ingresar números del 1-9 y también de un punto decimal
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo se admite números y punto decimal", "Validar números", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_tfPrecioNewKeyTyped
+
+    /*
+    PARA CONVERTIR A MAYUSCULAS
+    */
+    private void tfOrigenNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfOrigenNewKeyReleased
+        tfOrigenNew.setText(tfOrigenNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfOrigenNewKeyReleased
+
+    private void tfDestinoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDestinoNewKeyReleased
+        tfDestinoNew.setText(tfDestinoNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfDestinoNewKeyReleased
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboNFacturas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbCerrar;
     private javax.swing.JButton jbModificacionFactura;
     private javax.swing.JComboBox<String> jcbClienteNew;

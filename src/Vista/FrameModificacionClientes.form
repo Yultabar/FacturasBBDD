@@ -226,6 +226,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfCIFNew">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfCIFNewKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlZonaNew">
           <Properties>
@@ -294,6 +297,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfContactoNew">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfContactoNewKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlDireccionNew">
           <Properties>
@@ -304,6 +310,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfDireccionNew">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfDireccionNewKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="comboClientesModificados">
           <Properties>
@@ -327,6 +336,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfDireccion2New">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfDireccion2NewKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlPaisNew">
           <Properties>
@@ -337,6 +349,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfPaisNew">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfPaisNewKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
