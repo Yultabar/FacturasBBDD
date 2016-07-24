@@ -50,8 +50,8 @@ public class FacturaDAO {
     
     public boolean modificacion(Factura f){
         try{
-            String sql = "UPDATE TFacturas SET Origen = ?,Destino = ?,Precio =?,TipoIva = ?, TipoRetencion = ?"
-                    + " ,FechaPorte = ? , Fecha =?, Matricula = ?, IdCliente = ? WHERE Id = ?";
+            String sql = "UPDATE TFacturas SET Origen = UPPER(?), Destino =UPPER(?),Precio =?,TipoIva = ?, TipoRetencion = ?"
+                    + " ,FechaPorte = ? , Fecha =?, Matricula =UPPER(?), IdCliente = ? WHERE Id = ?";
             jdbcTemplate.update(sql,f.getOrigen(),f.getDestino(),f.getPrecio(),f.getTipoIva(),f.getTipoRetencion(),
             f.getFechaPorte(),f.getFecha(),f.getMatricula(),f.getCliente().getId(),f.getId());
             return true;

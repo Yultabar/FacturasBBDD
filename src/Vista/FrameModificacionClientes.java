@@ -332,23 +332,23 @@ public class FrameModificacionClientes extends javax.swing.JFrame {
     PARA CONVERTIR A MAYUSCULAS
     */
     private void tfCIFNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCIFNewKeyReleased
-        tfCIFNew.setText(tfCIFNew.getText().toUpperCase());
+        /*tfCIFNew.setText(tfCIFNew.getText().toUpperCase());*/
     }//GEN-LAST:event_tfCIFNewKeyReleased
 
     private void tfDireccionNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccionNewKeyReleased
-        tfDireccionNew.setText(tfDireccionNew.getText().toUpperCase());
+       /* tfDireccionNew.setText(tfDireccionNew.getText().toUpperCase());*/
     }//GEN-LAST:event_tfDireccionNewKeyReleased
 
     private void tfDireccion2NewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDireccion2NewKeyReleased
-        tfDireccion2New.setText(tfDireccion2New.getText().toUpperCase());
+       /* tfDireccion2New.setText(tfDireccion2New.getText().toUpperCase());*/
     }//GEN-LAST:event_tfDireccion2NewKeyReleased
 
     private void tfContactoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfContactoNewKeyReleased
-        tfContactoNew.setText(tfContactoNew.getText().toUpperCase());
+       /* tfContactoNew.setText(tfContactoNew.getText().toUpperCase());*/
     }//GEN-LAST:event_tfContactoNewKeyReleased
 
     private void tfPaisNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPaisNewKeyReleased
-         tfPaisNew.setText(tfPaisNew.getText().toUpperCase());
+        /* tfPaisNew.setText(tfPaisNew.getText().toUpperCase());*/
     }//GEN-LAST:event_tfPaisNewKeyReleased
 
 

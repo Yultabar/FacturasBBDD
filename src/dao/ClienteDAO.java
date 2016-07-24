@@ -63,8 +63,8 @@ public class ClienteDAO {
     
     public boolean modificacion(Cliente c) {
         try{
-            String sql = "UPDATE TClientes SET Alias=?,CIF=?,Direccion1=?,Direccion2=?,"
-                    + "Zona=?,Pais=?,Telefono1=?,Telefono2=?,Contacto=? WHERE Id = ?";
+            String sql = "UPDATE TClientes SET Alias=UPPER(?),CIF=UPPER(?),Direccion1=UPPER(?),Direccion2=UPPER(?)," //UPPER sirve para guardar los campos en mayusculas
+                    + "Zona=?,Pais=UPPER(?),Telefono1=?,Telefono2=?,Contacto=UPPER(?) WHERE Id = ?";
             jdbcTemplate.update(sql, c.getAlias(),c.getCif(),c.getDireccion(),c.getDireccion2(),
                     c.getZona(),c.getPais(),c.getTelefono1(),c.getTelefono2(),c.getContacto(),c.getId());
 

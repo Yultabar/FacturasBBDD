@@ -81,7 +81,7 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
             .addGroup(jpTituloLayout.createSequentialGroup()
                 .addGap(112, 112, 112)
                 .addComponent(jlTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         jpTituloLayout.setVerticalGroup(
             jpTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +203,7 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jdcFechaFacturaNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(264, 264, 264)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpModificacionFacturasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbModificacionFactura)
@@ -383,17 +383,16 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPrecioNewKeyTyped
 
     /*
-    PARA CONVERTIR A MAYUSCULAS
-    */
+    PARA CONVERTIR A MAYUSCULAS*/
+    
     private void tfOrigenNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfOrigenNewKeyReleased
-        tfOrigenNew.setText(tfOrigenNew.getText().toUpperCase());
+       /* tfOrigenNew.setText(tfOrigenNew.getText().toUpperCase());*/
     }//GEN-LAST:event_tfOrigenNewKeyReleased
 
     private void tfDestinoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDestinoNewKeyReleased
-        tfDestinoNew.setText(tfDestinoNew.getText().toUpperCase());
+        /*tfDestinoNew.setText(tfDestinoNew.getText().toUpperCase());*/
     }//GEN-LAST:event_tfDestinoNewKeyReleased
-
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboNFacturas;
