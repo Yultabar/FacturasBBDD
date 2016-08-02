@@ -118,6 +118,12 @@ public class FrameAltaClientes extends javax.swing.JFrame {
         jlZonaNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlZonaNew.setText("Zona:");
 
+        tfZonaNew.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfZonaNewKeyReleased(evt);
+            }
+        });
+
         jlTelefono1New.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlTelefono1New.setText("Telefono1:");
 
@@ -398,6 +404,10 @@ public class FrameAltaClientes extends javax.swing.JFrame {
     private void tfContactoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfContactoNewKeyReleased
         tfContactoNew.setText(tfContactoNew.getText().toUpperCase());
     }//GEN-LAST:event_tfContactoNewKeyReleased
+
+    private void tfZonaNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfZonaNewKeyReleased
+        tfZonaNew.setText(tfContactoNew.getText().toUpperCase());
+    }//GEN-LAST:event_tfZonaNewKeyReleased
 
 
 
