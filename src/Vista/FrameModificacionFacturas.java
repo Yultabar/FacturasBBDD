@@ -137,6 +137,11 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
         jlPrecioNew.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jlPrecioNew.setText("Importe:");
 
+        tfPrecioNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPrecioNewActionPerformed(evt);
+            }
+        });
         tfPrecioNew.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tfPrecioNewKeyTyped(evt);
@@ -386,12 +391,16 @@ public class FrameModificacionFacturas extends javax.swing.JFrame {
     PARA CONVERTIR A MAYUSCULAS*/
     
     private void tfOrigenNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfOrigenNewKeyReleased
-       /* tfOrigenNew.setText(tfOrigenNew.getText().toUpperCase());*/
+       tfOrigenNew.setText(tfOrigenNew.getText().toUpperCase());
     }//GEN-LAST:event_tfOrigenNewKeyReleased
 
     private void tfDestinoNewKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDestinoNewKeyReleased
-        /*tfDestinoNew.setText(tfDestinoNew.getText().toUpperCase());*/
+       tfDestinoNew.setText(tfDestinoNew.getText().toUpperCase());
     }//GEN-LAST:event_tfDestinoNewKeyReleased
+
+    private void tfPrecioNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPrecioNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPrecioNewActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

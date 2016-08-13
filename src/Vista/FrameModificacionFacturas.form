@@ -316,6 +316,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfPrecioNew">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPrecioNewActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfPrecioNewKeyTyped"/>
           </Events>
         </Component>
